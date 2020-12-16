@@ -68,10 +68,10 @@ processEncoding iHandle output = do
    (\oHandle ->
        do
          BL.hPut oHandle (runPut (putWord8 (fromIntegral (length packedMap))))
-         >> BL.hPut oHandle (BL.pack packedMap)
-         >> BL.hPut oHandle (runPut (putWord8 (fromIntegral pad))) 
-         >> BL.hPut oHandle (BL.pack packedBits) 
-         >> putStr "File encoded successfully"
+         BL.hPut oHandle (BL.pack packedMap)
+         BL.hPut oHandle (runPut (putWord8 (fromIntegral pad))) 
+         BL.hPut oHandle (BL.pack packedBits) 
+         putStr "File encoded successfully"
    )
 
 unpackBits :: [Word8] -> Bits
@@ -99,5 +99,5 @@ processDecoding iHandle output = do
    (\oHandle ->
        do
           BL.hPut oHandle (BLC8.pack decoded)
-          >> putStr "File decoded successfully"
+          putStr "File decoded successfully"
    )
