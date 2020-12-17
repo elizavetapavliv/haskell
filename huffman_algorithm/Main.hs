@@ -13,7 +13,7 @@ import Data.Word (Word8)
 main = do
     args <- getArgs
     case length args of
-        0 -> putStr "Pass input and output file names as arguments"
+        0 -> putStr "Pass input, output file names and mode (e - encode, d - decode) as arguments"
         1 -> putStr "Pass output file name as second argument"
         2 -> putStr "Pass mode (e - encode, d - decode) as third argument"
         otherwise -> do       
